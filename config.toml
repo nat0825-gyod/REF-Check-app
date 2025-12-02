@@ -1,0 +1,59 @@
+[devices]
+  [devices.DeviceA]
+    name = "装置A"
+    [devices.DeviceA.limits.color]
+      cl = 128
+      ucl = 131
+      lcl = 125
+    [devices.DeviceA.limits.scale]
+      cl = 100
+      ucl = 101
+      lcl = 99
+    [devices.DeviceA.notifications]
+      popup_message = "装置Aで異常が発生しました"
+      [devices.DeviceA.notifications.email]
+        to_addr = "Natsuki.Gyoda@sony.com"
+        subject = "[Alert] 装置A 異常検知（テストメール送信）"
+        body = "装置AのRGB値が管理値を外れました。(健常性監視アプリのテストメール送信です)"
+      [devices.DeviceA.notifications.teams]
+        webhook_url = "https://default66c65d8a91584521a2d8664963db48.e4.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/56789649a153417eb95d661c612dc3c2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=waVczymjqv5cGo5HL5XDOBdJAWweeO9XoORpPlKMVI8"
+        message = "装置A 異常検知"
+
+  [devices.DeviceB]
+    name = "装置B"
+    [devices.DeviceB.alert_rule]
+      window_size = 5
+      consecutive_ng = 3
+    [devices.DeviceB.limits.color]
+      cl = 128
+      ucl = 131
+      lcl = 125
+    [devices.DeviceB.limits.scale]
+      cl = 100
+      ucl = 101
+      lcl = 99
+    [devices.DeviceB.notifications]
+      popup_message = "装置Bで異常が発生しました"
+      [devices.DeviceB.notifications.email]
+        to_addr = "admin_b@example.com"
+        subject = "[Alert] 装置B 異常検知"
+        body = "装置BのRGB値が管理値を外れました。"
+      [devices.DeviceB.notifications.teams]
+        webhook_url = "https://outlook.office.com/webhook/device_b"
+        message = "装置B 異常検知"
+
+[spc]
+  # 連続a点が平均線より上または下にある
+  rule2_a = 7
+  # 連続a点が連続して昇順または降順に並んでいる
+  rule3_a = 7
+  # 連続x点が交互に上下している
+  rule4_x = 14
+  # 連続y点が平均線を超えて同じ側にある
+  rule5_y = 3
+  # 連続z点が平均線よりも2シグマ以上離れている
+  rule6_z = 5
+  # n点が連続して1シグマ範囲内にある
+  rule7_n = 15
+  # m点が連続して1シグマ範囲外にある
+  rule8_m = 8

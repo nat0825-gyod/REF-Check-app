@@ -1,0 +1,26 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+# 仮想環境やPython関連の不要ファイル
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+Lib/
+pyvenv.cfg
+
+# IDE関連
+.vscode/
+.idea/
+
+# その他不要
+*.csv  # rgb_data系やtitanic.csvなど
+*.txt  # テキストファイル（必要なら個別指定）
+
+# 必要なものは除外
+!.streamlit/config.toml
+!rgb_monitor_app.py
+!config.toml
+!requirements.txt
+!dummy_data/
